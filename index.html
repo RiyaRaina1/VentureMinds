@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VentureMind AI — Your Autonomous AI Co-Founder</title>
+
+  <!-- Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=display" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- Neural Canvas Background & Ambient Glow Orbs -->
+  <canvas id="particle-canvas"></canvas>
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
+  <div class="ambient-orb orb-3"></div>
+
+  <div id="app">
+
+    <!-- Top Navigation Bar -->
+    <header class="top-nav">
+      <a href="#" class="nav-brand" data-view="view-landing">
+        <div class="brand-icon">
+          <i class="fas fa-brain" style="color: #fff; font-size: 1.2rem;"></i>
+        </div>
+        <div>
+          <div class="brand-title">VentureMind<span class="gradient-text-accent">.AI</span></div>
+        </div>
+        <span class="brand-tag">AI CO-FOUNDER v3.4</span>
+      </a>
+
+      <div class="nav-actions">
+        <button class="cmd-trigger" id="cmd-palette-trigger">
+          <i class="fas fa-search"></i>
+          <span>Search or Command...</span>
+          <span class="kbd-shortcut">Ctrl K</span>
+        </button>
+
+        <button class="btn-icon" id="theme-toggle-btn" title="Toggle Dark/Light Mode">
+          <i class="fas fa-moon"></i>
+        </button>
+
+        <button class="btn-icon" title="Notifications">
+          <i class="fas fa-bell"></i>
+        </button>
+
+        <button class="btn-primary" data-view="view-validation" style="padding: 8px 18px; font-size: 0.85rem;">
+          <i class="fas fa-rocket"></i> Validate Idea
+        </button>
+      </div>
+    </header>
+
+    <!-- App Main Layout -->
+    <div class="app-layout">
+
+      <!-- Left Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="sidebar-label">Platform Core</div>
+        <a href="#" class="nav-item" data-view="view-landing">
+          <i class="fas fa-globe"></i> <span>Home Landing</span>
+        </a>
+        <a href="#" class="nav-item active" data-view="view-dashboard">
+          <i class="fas fa-chart-line"></i> <span>Mission Control</span>
+        </a>
+        <a href="#" class="nav-item" data-view="view-validation">
+          <i class="fas fa-microchip"></i> <span>Startup Validator</span>
+        </a>
+        <a href="#" class="nav-item" data-view="view-digital-twin">
+          <i class="fas fa-cube"></i> <span>Startup Digital Twin</span>
+        </a>
+
+        <div class="sidebar-label">Intelligence Labs</div>
+        <a href="#" class="nav-item" data-view="view-competitors">
+          <i class="fas fa-shield-alt"></i> <span>Competitor Radar</span>
+        </a>
+        <a href="#" class="nav-item" data-view="view-product">
+          <i class="fas fa-heartbeat"></i> <span>Product Sentiment</span>
+        </a>
+        <a href="#" class="nav-item" data-view="view-simulator">
+          <i class="fas fa-sliders-h"></i> <span>Business Simulator</span>
+        </a>
+
+        <div class="sidebar-label">Autonomous Operations</div>
+        <a href="#" class="nav-item" data-view="view-agents">
+          <i class="fas fa-user-astronaut"></i> <span>AI Agents Squad</span>
+        </a>
+        <a href="#" class="nav-item" data-view="view-chat">
+          <i class="fas fa-comments"></i> <span>AI Chat Studio</span>
+        </a>
+        <a href="#" class="nav-item" data-view="view-reports">
+          <i class="fas fa-file-pdf"></i> <span>Reports & Decks</span>
+        </a>
+        <a href="#" class="nav-item" data-view="view-settings">
+          <i class="fas fa-cog"></i> <span>Settings</span>
+        </a>
+
+        <!-- Founder / Investor Mode Switch -->
+        <div class="mode-switch-card">
+          <div class="mode-info">
+            <span class="mode-title" id="mode-status-text">Founder Mode</span>
+            <span class="mode-subtitle">Operational Metrics</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="mode-switch-input">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </aside>
+
+      <!-- Main Workspace View Container -->
+      <main class="main-content">
+
+        <!-- 1. LANDING PAGE VIEW -->
+        <section id="view-landing" class="view-section">
+          <div style="text-align: center; max-width: 900px; margin: 40px auto 60px auto;">
+            <span class="badge badge-ai" style="margin-bottom: 20px;">
+              <i class="fas fa-sparkles"></i> NEXT-GEN AUTONOMOUS AI CO-FOUNDER
+            </span>
+            <h1 style="font-size: 3.6rem; font-weight: 800; line-height: 1.15; margin-bottom: 24px;" class="gradient-text">
+              Build the Right Startup Before Building the Product.
+            </h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 36px;">
+              VentureMind AI validates your idea against 14,000+ competitors, projects 36-month financials, optimizes unit economics, and operates as your 24/7 autonomous AI co-founder squad.
+            </p>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+              <button class="btn-primary" data-view="view-validation" style="padding: 16px 36px; font-size: 1.1rem;">
+                <i class="fas fa-bolt"></i> Start Autonomous Validation
+              </button>
+              <button class="btn-secondary" data-view="view-dashboard" style="padding: 16px 32px; font-size: 1.1rem;">
+                <i class="fas fa-play"></i> Explore Live Mission Control
+              </button>
+            </div>
+          </div>
+
+          <!-- Futuristic Holographic Card Preview -->
+          <div class="glow-border" style="margin-bottom: 60px;">
+            <div class="glow-border-inner" style="display: flex; align-items: center; justify-content: space-between; gap: 32px;">
+              <div>
+                <span class="badge badge-cyan" style="margin-bottom: 12px;">HOLOGRAPHIC TELEMETRY</span>
+                <h3 style="font-size: 1.8rem; margin-bottom: 12px;">AI Co-Founder Mission Control</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                  Monitor your startup's health score, revenue runway, investor readiness, and competitive moat in real time.
+                </p>
+                <div style="display: flex; gap: 24px; margin-top: 24px;">
+                  <div>
+                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent-emerald);">94/100</div>
+                    <div style="font-size: 0.75rem; color: var(--text-muted);">VALIDATION SCORE</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent-cyan);">$1.4M</div>
+                    <div style="font-size: 0.75rem; color: var(--text-muted);">ARR PROJECTION</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent-purple);">98%</div>
+                    <div style="font-size: 0.75rem; color: var(--text-muted);">AI CONFIDENCE</div>
+                  </div>
+                </div>
+              </div>
+              <div style="width: 320px; height: 180px; background: rgba(59, 130, 246, 0.1); border-radius: 14px; border: 1px solid var(--accent-blue); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                <i class="fas fa-brain fa-spin" style="font-size: 4rem; color: var(--accent-cyan); opacity: 0.8;"></i>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. MISSION CONTROL DASHBOARD VIEW -->
+        <section id="view-dashboard" class="view-section active">
+          <div class="section-header">
+            <div class="section-title-group">
+              <h1>Mission Control Dashboard</h1>
+              <p class="section-subtitle">Real-time telemetry, AI confidence metrics, and growth forecasts.</p>
+            </div>
+            <div style="display: flex; gap: 12px;">
+              <span class="badge badge-ai"><i class="fas fa-layer-group"></i> PHASE 1 FOUNDATION</span>
+              <span class="badge badge-secondary" id="backend-health-badge"><i class="fas fa-plug"></i> API: CONNECTING...</span>
+            </div>
+          </div>
+
+          <!-- Futuristic Gauges Grid -->
+          <div class="grid-4" style="margin-bottom: 32px;">
+            <div class="glass-card gauge-container">
+              <div id="gauge-health"></div>
+              <div style="font-size: 0.9rem; font-weight: 700; margin-top: 12px;">Startup Health Index</div>
+            </div>
+            <div class="glass-card gauge-container">
+              <div id="gauge-confidence"></div>
+              <div style="font-size: 0.9rem; font-weight: 700; margin-top: 12px;">AI Confidence Meter</div>
+            </div>
+            <div class="glass-card gauge-container">
+              <div id="gauge-growth"></div>
+              <div style="font-size: 0.9rem; font-weight: 700; margin-top: 12px;">Business Growth Velocity</div>
+            </div>
+            <div class="glass-card gauge-container">
+              <div id="gauge-readiness"></div>
+              <div style="font-size: 0.9rem; font-weight: 700; margin-top: 12px;">Investor Readiness</div>
+            </div>
+          </div>
+
+          <!-- Stat Cards Row -->
+          <div class="grid-4" style="margin-bottom: 32px;">
+            <div class="glass-card stat-card">
+              <div class="stat-header">
+                <span class="stat-title">Monthly Revenue (MRR)</span>
+                <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
+              </div>
+              <div class="stat-value" id="stat-mrr">$124,500</div>
+              <div class="stat-footer trend-up">
+                <i class="fas fa-arrow-up"></i> +14.2% from last month
+              </div>
+            </div>
+            <div class="glass-card stat-card">
+              <div class="stat-header">
+                <span class="stat-title">Cash Burn Rate</span>
+                <div class="stat-icon" style="color: var(--accent-pink); background: rgba(236, 72, 153, 0.1);"><i class="fas fa-fire"></i></div>
+              </div>
+              <div class="stat-value" id="stat-burn">$28,400/mo</div>
+              <div class="stat-footer trend-down">
+                <i class="fas fa-arrow-down"></i> -8.4% cost optimization
+              </div>
+            </div>
+            <div class="glass-card stat-card">
+              <div class="stat-header">
+                <span class="stat-title">Runway Horizon</span>
+                <div class="stat-icon" style="color: var(--accent-amber); background: rgba(245, 158, 11, 0.1);"><i class="fas fa-hourglass-half"></i></div>
+              </div>
+              <div class="stat-value" id="stat-runway">18 Months</div>
+              <div class="stat-footer trend-up">
+                <i class="fas fa-shield-alt"></i> Safe Series A Window
+              </div>
+            </div>
+            <div class="glass-card stat-card">
+              <div class="stat-header">
+                <span class="stat-title">Success Probability</span>
+                <div class="stat-icon" style="color: var(--accent-emerald); background: rgba(16, 185, 129, 0.1);"><i class="fas fa-award"></i></div>
+              </div>
+              <div class="stat-value" id="stat-prob">91.8%</div>
+              <div class="stat-footer trend-up">
+                <i class="fas fa-check"></i> Top 5% Decile SaaS
+              </div>
+            </div>
+          </div>
+
+          <!-- Growth Chart Section -->
+          <div class="glass-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <div>
+                <h3 style="font-size: 1.2rem;">36-Month ARR Revenue Trajectory</h3>
+                <p style="color: var(--text-muted); font-size: 0.85rem;">Autonomous AI market projection based on unit economics & growth loops.</p>
+              </div>
+              <span class="badge badge-cyan">LIVE AI MODEL</span>
+            </div>
+            <div style="width: 100%; height: 260px;">
+              <canvas id="chart-growth-line"></canvas>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. STARTUP VALIDATION WIZARD VIEW (3-STAGE AI CO-FOUNDER FLOW) -->
+        <section id="view-validation" class="view-section">
+          <div class="section-header">
+            <div class="section-title-group">
+              <h1>AI Co-Founder Startup Validator</h1>
+              <p class="section-subtitle">Move from a rough concept to a validated, stress-tested roadmap in seconds.</p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <button class="btn-secondary" id="validation-history-btn" style="font-size: 0.85rem;"><i class="fas fa-history"></i> Report History</button>
+            </div>
+          </div>
+
+          <div class="glass-card" style="max-width: 900px; margin: 0 auto;">
+            <!-- 3-Stage Progress Indicator -->
+            <div class="stage-stepper">
+              <div class="stage-step active" id="stepper-stage-1">
+                <div class="stage-badge">1</div>
+                <span>Describe Idea</span>
+              </div>
+              <div class="stage-divider"></div>
+              <div class="stage-step" id="stepper-stage-2">
+                <div class="stage-badge">2</div>
+                <span>AI Understanding</span>
+              </div>
+              <div class="stage-divider"></div>
+              <div class="stage-step" id="stepper-stage-3">
+                <div class="stage-badge">3</div>
+                <span>Validation Report</span>
+              </div>
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- STAGE 1: DESCRIBE YOUR IDEA                               -->
+            <!-- ========================================================= -->
+            <div id="stage-idea-input">
+              <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 1.15rem; margin-bottom: 6px; color: var(--text-main);"><i class="fas fa-lightbulb" style="color: var(--accent-cyan); margin-right: 8px;"></i>What are you building?</h3>
+                <p style="color: var(--text-muted); font-size: 0.88rem; margin: 0;">Describe your startup concept naturally. Our AI co-founder will infer the target audience, problem, solution, and business model.</p>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="input-idea-description">Idea Description <span style="color: var(--accent-cyan);">*</span></label>
+                <textarea id="input-idea-description" class="form-control" style="min-height: 140px; font-size: 0.95rem; line-height: 1.6;" placeholder="e.g. An AI-powered co-founder platform that helps early-stage solo founders validate concepts, calculate unit economics, and test financial scenarios before writing code..."></textarea>
+                
+                <!-- Quick Starter Prompt Chips -->
+                <div style="margin-top: 10px;">
+                  <span style="font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">Starter Prompts:</span>
+                  <div class="starter-chips-container">
+                    <button type="button" class="starter-chip" data-prompt="An autonomous AI agent squad for engineering teams that automatically reviews pull requests, writes regression tests, and flags security vulnerabilities.">
+                      <i class="fas fa-robot"></i> B2B AI Agent Platform
+                    </button>
+                    <button type="button" class="starter-chip" data-prompt="A headless workflow automation API for independent creators to monetize digital assets and manage subscriptions with zero code.">
+                      <i class="fas fa-bolt"></i> Creator Workflow API
+                    </button>
+                    <button type="button" class="starter-chip" data-prompt="A real-time financial simulation engine for early-stage SaaS founders to stress-test runway, pricing tiers, and customer acquisition payback.">
+                      <i class="fas fa-chart-pie"></i> SaaS Financial Simulator
+                    </button>
+                    <button type="button" class="starter-chip" data-prompt="An on-demand marketplace connecting vetted hardware engineers with IoT startups for rapid prototyping and firmware development.">
+                      <i class="fas fa-microchip"></i> Hardware Prototyping Hub
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 28px;">
+                <label class="form-label" for="input-startup-name">Startup Name <span style="color: var(--text-dim); font-size: 0.8rem; font-weight: normal;">(Optional — AI can suggest one)</span></label>
+                <input type="text" id="input-startup-name" class="form-control" placeholder="e.g. VentureMind AI" style="max-width: 480px; width: 100%;">
+              </div>
+
+              <div class="stage-actions-bar" style="justify-content: flex-end;">
+                <button type="button" class="btn-primary" id="btn-spark-ai" style="padding: 13px 30px; font-size: 0.95rem; background: var(--grad-glow-cyan); color: #050816; font-weight: 700;">
+                  <i class="fas fa-sparkles"></i> Spark AI Co-Founder Analysis <i class="fas fa-arrow-right" style="margin-left: 6px;"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- STAGE 2: AI CO-FOUNDER UNDERSTANDING & FOLLOW-UPS         -->
+            <!-- ========================================================= -->
+            <div id="stage-ai-synthesis" style="display: none;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+                <div>
+                  <h3 style="font-size: 1.25rem; margin-bottom: 4px; color: var(--text-main);"><i class="fas fa-brain" style="color: var(--accent-purple); margin-right: 8px;"></i>AI Co-Founder Understanding</h3>
+                  <p style="color: var(--text-muted); font-size: 0.88rem; margin: 0;">Review inferred parameters and refine as needed. Everything is directly editable.</p>
+                </div>
+                <span class="badge badge-ai"><i class="fas fa-magic"></i> AI Inferred Model</span>
+              </div>
+
+              <!-- Editable Synthesis Grid -->
+              <div class="synth-grid">
+                <div class="synth-card">
+                  <div class="synth-card-header">
+                    <span class="synth-card-title"><i class="fas fa-tag"></i> Startup Name</span>
+                    <span class="synth-badge"><i class="fas fa-magic"></i> Inferred</span>
+                  </div>
+                  <input type="text" id="synth-startup-name" class="synth-input" placeholder="Startup Name">
+                </div>
+
+                <div class="synth-card">
+                  <div class="synth-card-header">
+                    <span class="synth-card-title"><i class="fas fa-users"></i> Target ICP / Audience</span>
+                    <span class="synth-badge"><i class="fas fa-magic"></i> Inferred</span>
+                  </div>
+                  <input type="text" id="synth-audience" class="synth-input" placeholder="Ideal Customer Profile">
+                </div>
+
+                <div class="synth-card" style="grid-column: 1 / -1;">
+                  <div class="synth-card-header">
+                    <span class="synth-card-title"><i class="fas fa-exclamation-circle"></i> Core Problem Statement</span>
+                    <span class="synth-badge"><i class="fas fa-magic"></i> Inferred</span>
+                  </div>
+                  <textarea id="synth-problem" class="synth-input" placeholder="The core customer pain point"></textarea>
+                </div>
+
+                <div class="synth-card" style="grid-column: 1 / -1;">
+                  <div class="synth-card-header">
+                    <span class="synth-card-title"><i class="fas fa-cube"></i> Proposed Solution</span>
+                    <span class="synth-badge"><i class="fas fa-magic"></i> Inferred</span>
+                  </div>
+                  <textarea id="synth-solution" class="synth-input" placeholder="How the product solves the problem"></textarea>
+                </div>
+
+                <div class="synth-card">
+                  <div class="synth-card-header">
+                    <span class="synth-card-title"><i class="fas fa-fingerprint"></i> Unique Value Prop</span>
+                    <span class="synth-badge"><i class="fas fa-magic"></i> Inferred</span>
+                  </div>
+                  <textarea id="synth-uvp" class="synth-input" placeholder="Primary differentiator"></textarea>
+                </div>
+
+                <div class="synth-card">
+                  <div class="synth-card-header">
+                    <span class="synth-card-title"><i class="fas fa-dollar-sign"></i> Revenue Model & Pricing</span>
+                    <span class="synth-badge"><i class="fas fa-magic"></i> Inferred</span>
+                  </div>
+                  <textarea id="synth-bizmodel" class="synth-input" placeholder="Monetization strategy"></textarea>
+                </div>
+              </div>
+
+              <!-- Smart Follow-up Questions Container -->
+              <div id="synth-followups-section" style="margin-bottom: 24px;">
+                <div style="margin-bottom: 14px;">
+                  <h4 style="font-size: 1rem; color: var(--text-main); margin-bottom: 4px;">
+                    <i class="fas fa-comments" style="color: var(--accent-purple); margin-right: 6px;"></i> Co-Founder Clarifying Questions
+                  </h4>
+                  <p style="color: var(--text-muted); font-size: 0.82rem; margin: 0;">Select a suggested option or provide custom answers to maximize validation precision.</p>
+                </div>
+                <div id="synth-followups-container">
+                  <!-- Dynamically populated questions -->
+                </div>
+              </div>
+
+              <!-- Collapsible Advanced Context Drawer -->
+              <div class="advanced-context-panel">
+                <button type="button" class="advanced-toggle-btn" id="btn-toggle-advanced">
+                  <i class="fas fa-sliders-h" style="color: var(--accent-cyan);"></i>
+                  <span>Advanced Context (Tech Stack, Competitors, Stage)</span>
+                  <span class="advanced-tag-optional">OPTIONAL</span>
+                  <i class="fas fa-chevron-down" id="advanced-chevron"></i>
+                </button>
+
+                <div class="collapsible-drawer" id="synth-advanced-drawer">
+                  <div class="advanced-inner-grid">
+                    <div class="form-group" style="margin-bottom: 0;">
+                      <label class="form-label" style="font-size: 0.82rem;">Target Geography / Market Scope</label>
+                      <input type="text" id="synth-market" class="synth-input" placeholder="e.g. US / Global Devs">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                      <label class="form-label" style="font-size: 0.82rem;">Current Startup Stage</label>
+                      <input type="text" id="synth-stage" class="synth-input" placeholder="e.g. Pre-product, Idea Phase" value="Pre-product / Idea Validation">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                      <label class="form-label" style="font-size: 0.82rem;">Known Competitors & Alternatives</label>
+                      <input type="text" id="synth-competitors" class="synth-input" placeholder="e.g. Incumbent A, Tool B">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                      <label class="form-label" style="font-size: 0.82rem;">Architecture & Tech Stack</label>
+                      <input type="text" id="synth-tech" class="synth-input" placeholder="e.g. Python, FastAPI, React">
+                    </div>
+                    <div class="form-group" style="grid-column: 1 / -1; margin-bottom: 0;">
+                      <label class="form-label" style="font-size: 0.82rem;">Budget, Runway & Additional Notes</label>
+                      <input type="text" id="synth-additional" class="synth-input" placeholder="e.g. Bootstrapped, 6-month runway, solo technical founder">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="stage-actions-bar">
+                <button type="button" class="btn-secondary" id="btn-back-to-idea">
+                  <i class="fas fa-arrow-left"></i> Back to Idea
+                </button>
+                <button type="button" class="btn-primary" id="btn-generate-full-report" style="background: var(--grad-primary); padding: 13px 30px;">
+                  <i class="fas fa-microchip"></i> Generate Complete Validation Report <i class="fas fa-arrow-right" style="margin-left: 6px;"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- 4. VALIDATION RESULTS VIEW -->
+        <section id="view-results" class="view-section">
+          <div class="section-header">
+            <div class="section-title-group">
+              <h1 id="results-startup-title">Startup Project Record</h1>
+              <p class="section-subtitle" id="results-startup-subtitle">AI-Powered Validation Report & Feasibility Analysis</p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <button class="btn-secondary" id="results-history-btn" style="font-size: 0.85rem;"><i class="fas fa-history"></i> Report History</button>
+              <button class="btn-primary" data-view="view-validation"><i class="fas fa-plus"></i> New Analysis</button>
+            </div>
+          </div>
+
+          <!-- Honest Notice & Disclaimer Banner -->
+          <div class="glass-card" style="margin-bottom: 24px; border-left: 4px solid var(--accent-cyan);">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+              <div style="max-width: 80%;">
+                <h4 style="color: var(--accent-cyan); margin-bottom: 4px;"><i class="fas fa-shield-alt"></i> AI Validation Transparency</h4>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0; line-height: 1.5;" id="results-ai-disclaimer">
+                  Assessments are AI-generated estimates based on provided founder inputs. They do not represent verified market research, legal advice, or financial guarantees.
+                </p>
+                <p style="color: var(--text-dim); font-size: 0.78rem; margin-top: 4px;" id="results-evidence-notes">
+                  <i class="fas fa-info-circle"></i> Evidence: User-provided inputs only. No live external market data consulted.
+                </p>
+              </div>
+              <span class="badge badge-success" id="results-db-status"><i class="fas fa-check-circle"></i> REPORT PERSISTED</span>
+            </div>
+          </div>
+
+          <!-- Top Metric Cards Grid -->
+          <div class="grid-4" style="margin-bottom: 24px;">
+            <div class="glass-card stat-card">
+              <div class="stat-header">
+                <span class="stat-title">Validation Score</span>
+                <div class="stat-icon" style="color: var(--accent-emerald); background: rgba(16, 185, 129, 0.1);"><i class="fas fa-award"></i></div>
+              </div>
+              <div class="stat-value" id="results-score-value">--/100</div>
+              <div class="stat-footer trend-up" id="results-score-footer">
+                <span class="badge badge-ai" id="results-score-label">Evaluating</span>
+              </div>
+            </div>
+
+            <div class="glass-card stat-card">
+              <div class="stat-header">
+                <span class="stat-title">AI Confidence</span>
+                <div class="stat-icon" style="color: var(--accent-cyan); background: rgba(6, 182, 212, 0.1);"><i class="fas fa-brain"></i></div>
+              </div>
+              <div class="stat-value" id="results-confidence-value" style="color: var(--accent-cyan);">MEDIUM</div>
+              <div class="stat-footer" style="color: var(--text-muted); font-size: 0.75rem;">
+                Based on input depth
+              </div>
+            </div>
+
+            <div class="glass-card stat-card">
+              <div class="stat-header">
+                <span class="stat-title">Database Persistence</span>
+                <div class="stat-icon" style="color: var(--accent-purple); background: rgba(139, 92, 246, 0.1);"><i class="fas fa-database"></i></div>
+              </div>
+              <div class="stat-value" id="results-project-id" style="font-size: 1.4rem; color: var(--accent-purple);">Connected</div>
+              <div class="stat-footer trend-up">
+                <i class="fas fa-check"></i> MySQL via SQLAlchemy
+              </div>
+            </div>
+
+            <div class="glass-card stat-card">
+              <div class="stat-header">
+                <span class="stat-title">Intelligence Model</span>
+                <div class="stat-icon" style="color: var(--accent-blue); background: rgba(59, 130, 246, 0.1);"><i class="fas fa-microchip"></i></div>
+              </div>
+              <div class="stat-value" id="results-model-used" style="font-size: 1.1rem; color: var(--accent-blue); word-break: break-word;">Groq LPU Core</div>
+              <div class="stat-footer" style="color: var(--text-muted); font-size: 0.75rem;">
+                Deterministic Scoring
+              </div>
+            </div>
+          </div>
+
+          <!-- 5-Dimension Transparent Scoring Breakdown -->
+          <div class="glass-card" style="margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+              <div>
+                <h3 style="font-size: 1.15rem;"><i class="fas fa-sliders-h" style="color: var(--accent-cyan); margin-right: 8px;"></i> Transparent 5-Dimension Score Breakdown</h3>
+                <p style="color: var(--text-muted); font-size: 0.82rem; margin-top: 2px;">Computed deterministically from validated component scores and documented weights (Max = 100 points).</p>
+              </div>
+              <span class="badge badge-ai"><i class="fas fa-calculator"></i> WEIGHTED ALGORITHM</span>
+            </div>
+            <div id="results-dimensions-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+              <!-- Populated dynamically by wizard.js -->
+            </div>
+          </div>
+
+          <!-- Executive Summary -->
+          <div class="glass-card" style="margin-bottom: 24px;">
+            <h3 style="color: var(--accent-emerald); margin-bottom: 12px;"><i class="fas fa-file-alt"></i> Executive Summary & Concept Outlook</h3>
+            <p style="color: var(--text-main); font-size: 0.95rem; line-height: 1.75; white-space: pre-line;" id="results-startup-summary">
+              Startup concept registered in VentureMind backend database. Run AI Validation Analysis to generate deep feasibility assessments.
+            </p>
+          </div>
+
+          <!-- Deep Analysis Sections Grid -->
+          <div class="grid-2" style="margin-bottom: 24px;">
+            <div class="glass-card">
+              <h4 style="color: var(--accent-blue); margin-bottom: 10px;"><i class="fas fa-bullseye"></i> Problem Clarity & Pain Urgency</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;" id="results-problem-clarity">--</p>
+            </div>
+            <div class="glass-card">
+              <h4 style="color: var(--accent-cyan); margin-bottom: 10px;"><i class="fas fa-users"></i> Target Customer & ICP Specificity</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;" id="results-target-customer">--</p>
+            </div>
+            <div class="glass-card">
+              <h4 style="color: var(--accent-purple); margin-bottom: 10px;"><i class="fas fa-gem"></i> Value Proposition & Differentiation</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;" id="results-value-prop">--</p>
+            </div>
+            <div class="glass-card">
+              <h4 style="color: var(--accent-emerald); margin-bottom: 10px;"><i class="fas fa-dollar-sign"></i> Business Model & Unit Economics Feasibility</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;" id="results-business-model">--</p>
+            </div>
+            <div class="glass-card">
+              <h4 style="color: var(--accent-amber); margin-bottom: 10px;"><i class="fas fa-chart-pie"></i> Market Assumptions (Estimated)</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;" id="results-market-assumptions">--</p>
+            </div>
+            <div class="glass-card">
+              <h4 style="color: var(--accent-pink); margin-bottom: 10px;"><i class="fas fa-cogs"></i> Technical & Operational Feasibility</h4>
+              <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;" id="results-tech-feasibility">--</p>
+            </div>
+          </div>
+
+          <!-- Strengths, Weaknesses, Risks Grid -->
+          <div class="grid-3" style="margin-bottom: 24px;">
+            <div class="glass-card">
+              <h4 style="color: var(--accent-emerald); margin-bottom: 12px;"><i class="fas fa-arrow-up"></i> Observed Strengths</h4>
+              <ul style="padding-left: 18px; color: var(--text-muted); font-size: 0.88rem; line-height: 1.7;" id="results-strengths-list">
+                <li>Awaiting analysis...</li>
+              </ul>
+            </div>
+            <div class="glass-card">
+              <h4 style="color: var(--accent-pink); margin-bottom: 12px;"><i class="fas fa-arrow-down"></i> Gaps & Weaknesses</h4>
+              <ul style="padding-left: 18px; color: var(--text-muted); font-size: 0.88rem; line-height: 1.7;" id="results-weaknesses-list">
+                <li>Awaiting analysis...</li>
+              </ul>
+            </div>
+            <div class="glass-card">
+              <h4 style="color: var(--accent-amber); margin-bottom: 12px;"><i class="fas fa-exclamation-triangle"></i> Key Risks & Dependencies</h4>
+              <ul style="padding-left: 18px; color: var(--text-muted); font-size: 0.88rem; line-height: 1.7;" id="results-risks-list">
+                <li>Awaiting analysis...</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Actionable Next Steps & Discovery Experiments Grid -->
+          <div class="grid-2" style="margin-bottom: 24px;">
+            <div class="glass-card">
+              <h4 style="color: var(--accent-cyan); margin-bottom: 12px;"><i class="fas fa-tasks"></i> Recommended Next Steps</h4>
+              <ol style="padding-left: 18px; color: var(--text-muted); font-size: 0.88rem; line-height: 1.7;" id="results-next-steps-list">
+                <li>Awaiting analysis...</li>
+              </ol>
+            </div>
+            <div class="glass-card">
+              <h4 style="color: var(--accent-purple); margin-bottom: 12px;"><i class="fas fa-comments"></i> Customer Discovery Interview Questions</h4>
+              <ul style="padding-left: 18px; color: var(--text-muted); font-size: 0.88rem; line-height: 1.7;" id="results-questions-list">
+                <li>Awaiting analysis...</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="grid-2" style="margin-bottom: 24px;">
+            <div class="glass-card">
+              <h4 style="color: var(--accent-emerald); margin-bottom: 12px;"><i class="fas fa-vial"></i> Low-Cost Validation Experiments</h4>
+              <ul style="padding-left: 18px; color: var(--text-muted); font-size: 0.88rem; line-height: 1.7;" id="results-experiments-list">
+                <li>Awaiting analysis...</li>
+              </ul>
+            </div>
+            <div class="glass-card">
+              <h4 style="color: var(--accent-blue); margin-bottom: 12px;"><i class="fas fa-tachometer-alt"></i> Key Metrics & Signals to Track</h4>
+              <ul style="padding-left: 18px; color: var(--text-muted); font-size: 0.88rem; line-height: 1.7;" id="results-metrics-list">
+                <li>Awaiting analysis...</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Missing Information & Uncertain Assumptions (Transparency) -->
+          <div class="grid-2" style="margin-bottom: 24px;">
+            <div class="glass-card" style="border-left: 3px solid var(--accent-amber);">
+              <h4 style="color: var(--accent-amber); margin-bottom: 10px;"><i class="fas fa-question-circle"></i> Missing Inputs (Information Gaps)</h4>
+              <p style="color: var(--text-dim); font-size: 0.8rem; margin-bottom: 8px;">Supplying these inputs will increase score accuracy and confidence:</p>
+              <ul style="padding-left: 18px; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;" id="results-missing-info-list">
+                <li>None noted.</li>
+              </ul>
+            </div>
+            <div class="glass-card" style="border-left: 3px solid var(--accent-pink);">
+              <h4 style="color: var(--accent-pink); margin-bottom: 10px;"><i class="fas fa-lightbulb"></i> AI Hypotheses & Uncertain Assumptions</h4>
+              <p style="color: var(--text-dim); font-size: 0.8rem; margin-bottom: 8px;">Assumptions made by the AI engine that require founder validation:</p>
+              <ul style="padding-left: 18px; color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;" id="results-uncertain-assumptions-list">
+                <li>None noted.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. COMPETITOR INTELLIGENCE VIEW -->
+        <section id="view-competitors" class="view-section">
+          <div class="section-header">
+            <div class="section-title-group">
+              <h1>Competitor Intelligence Radar</h1>
+              <p class="section-subtitle">Real-time competitor tracking, pricing velocity, and AI capability scores.</p>
+            </div>
+          </div>
+
+          <div class="grid-2-1" style="margin-bottom: 32px;">
+            <div class="glass-card">
+              <h3 style="margin-bottom: 16px;">Multi-Variable Competitor Radar</h3>
+              <div style="width: 100%; height: 320px;">
+                <canvas id="chart-competitor-radar"></canvas>
+              </div>
+            </div>
+            <div class="glass-card">
+              <h3 style="margin-bottom: 16px;">Rival Matrix</h3>
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="padding: 12px; background: rgba(5, 8, 22, 0.6); border-radius: 10px; border: 1px solid var(--border-color);">
+                  <div style="font-weight: 700;">Competitor Alpha</div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Funding: $12.5M | Moat: Moderate</div>
+                </div>
+                <div style="padding: 12px; background: rgba(5, 8, 22, 0.6); border-radius: 10px; border: 1px solid var(--border-color);">
+                  <div style="font-weight: 700;">Competitor Beta</div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Funding: $4.2M | Moat: Low</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. PRODUCT INTELLIGENCE VIEW -->
+        <section id="view-product" class="view-section">
+          <div class="section-header">
+            <div class="section-title-group">
+              <h1>Product Sentiment & CSAT Analytics</h1>
+              <p class="section-subtitle">Real-time emotion wheel and customer feedback clusters.</p>
+            </div>
+          </div>
+
+          <div class="grid-3">
+            <div class="glass-card" style="text-align: center;">
+              <h3>Customer CSAT Score</h3>
+              <div style="font-size: 3.2rem; font-weight: 800; color: var(--accent-emerald); margin: 20px 0;">4.9 / 5.0</div>
+              <span class="badge badge-success">TOP 1% USER RATING</span>
+            </div>
+            <div class="glass-card" style="text-align: center;">
+              <h3>Net Promoter Score (NPS)</h3>
+              <div style="font-size: 3.2rem; font-weight: 800; color: var(--accent-cyan); margin: 20px 0;">+78</div>
+              <span class="badge badge-cyan">WORLD CLASS ENTHUSIASM</span>
+            </div>
+            <div class="glass-card" style="text-align: center;">
+              <h3>Emotion Distribution</h3>
+              <div style="font-size: 3.2rem; font-weight: 800; color: var(--accent-purple); margin: 20px 0;">94% Joy</div>
+              <span class="badge badge-ai">ZERO FRICTION LIFT</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. BUSINESS SIMULATOR VIEW -->
+        <section id="view-simulator" class="view-section">
+          <div class="section-header">
+            <div class="section-title-group">
+              <h1>Futuristic Business Simulator Lab</h1>
+              <p class="section-subtitle">Adjust operational sliders to recalculate financial runway and growth in real time.</p>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <!-- Simulator Controls -->
+            <div class="glass-card">
+              <h3 style="margin-bottom: 24px;"><i class="fas fa-sliders-h"></i> Scenario Inputs</h3>
+
+              <div class="form-group">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                  <label class="form-label">Subscription Price ($/month)</label>
+                  <span id="val-sim-price" style="font-weight: 700; color: var(--accent-cyan);">$49/mo</span>
+                </div>
+                <input type="range" id="sim-price" min="10" max="299" value="49" style="width: 100%;">
+              </div>
+
+              <div class="form-group">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                  <label class="form-label">Monthly Growth & Ad Spend</label>
+                  <span id="val-sim-mktg" style="font-weight: 700; color: var(--accent-blue);">$5,000/mo</span>
+                </div>
+                <input type="range" id="sim-mktg" min="1000" max="50000" step="1000" value="5000" style="width: 100%;">
+              </div>
+
+              <div class="form-group">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                  <label class="form-label">Developer & Sales Hiring</label>
+                  <span id="val-sim-hiring" style="font-weight: 700; color: var(--accent-purple);">4 Engineers</span>
+                </div>
+                <input type="range" id="sim-hiring" min="1" max="20" value="4" style="width: 100%;">
+              </div>
+
+              <div class="form-group">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                  <label class="form-label">R&D & GPU Cloud Budget</label>
+                  <span id="val-sim-tech" style="font-weight: 700; color: var(--accent-emerald);">$2,500/mo</span>
+                </div>
+                <input type="range" id="sim-tech" min="500" max="20000" step="500" value="2500" style="width: 100%;">
+              </div>
+            </div>
+
+            <!-- Live Simulator Forecast Results -->
+            <div class="glass-card">
+              <h3 style="margin-bottom: 24px;"><i class="fas fa-chart-bar"></i> Instant Forecast Outputs</h3>
+
+              <div class="grid-2" style="margin-bottom: 20px;">
+                <div style="padding: 16px; background: rgba(5, 8, 22, 0.6); border-radius: 12px; border: 1px solid var(--border-color);">
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">PROJECTED MRR</div>
+                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent-emerald);" id="sim-res-mrr">$142,000</div>
+                </div>
+                <div style="padding: 16px; background: rgba(5, 8, 22, 0.6); border-radius: 12px; border: 1px solid var(--border-color);">
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">MONTHLY BURN</div>
+                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent-pink);" id="sim-res-burn">$45,500/mo</div>
+                </div>
+              </div>
+
+              <div class="grid-2" style="margin-bottom: 24px;">
+                <div style="padding: 16px; background: rgba(5, 8, 22, 0.6); border-radius: 12px; border: 1px solid var(--border-color);">
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">RUNWAY HORIZON</div>
+                  <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent-amber);" id="sim-res-runway">14 Months</div>
+                </div>
+                <div style="padding: 16px; background: rgba(5, 8, 22, 0.6); border-radius: 12px; border: 1px solid var(--border-color);">
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">RISK EVALUATION</div>
+                  <div style="margin-top: 6px;"><span class="badge badge-cyan" id="sim-res-risk">BALANCED</span></div>
+                </div>
+              </div>
+
+              <!-- Live Forecast Graph -->
+              <div style="width: 100%; height: 200px;">
+                <canvas id="chart-sim-forecast"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8. STARTUP DIGITAL TWIN VIEW -->
+        <section id="view-digital-twin" class="view-section">
+          <div class="section-header">
+            <div class="section-title-group">
+              <h1>Holographic Startup Digital Twin</h1>
+              <p class="section-subtitle">Iron Man Jarvis-style 3D interactive telemetry graph.</p>
+            </div>
+            <span class="badge badge-ai"><i class="fas fa-microchip"></i> 3D NODE MATRIX ACTIVE</span>
+          </div>
+
+          <div id="twin-canvas-container">
+            <canvas id="twin-canvas"></canvas>
+
+            <div class="twin-node-panel" id="twin-node-panel" style="display: none;">
+              <h4 id="twin-node-title" style="color: var(--accent-cyan); margin-bottom: 6px;">NODE TELEMETRY</h4>
+              <div style="font-size: 1.4rem; font-weight: 800; margin-bottom: 8px;" id="twin-node-value">--</div>
+              <p style="font-size: 0.82rem; color: var(--text-muted);" id="twin-node-desc">Click any orbiting node to inspect active AI telemetry metrics.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 9. MULTI-AGENT SQUAD VIEW -->
+        <section id="view-agents" class="view-section">
+          <div class="section-header">
+            <div class="section-title-group">
+              <h1>Autonomous AI Co-Founder Squad</h1>
+              <p class="section-subtitle">7 Specialized AI Executive Agents working synchronously for your startup.</p>
+            </div>
+          </div>
+
+          <div class="grid-3" id="agent-grid-container">
+            <!-- Agent Cards injected via js/multi-agent.js -->
+          </div>
+        </section>
+
+        <!-- 10. AI CHAT STUDIO VIEW -->
+        <section id="view-chat" class="view-section">
+          <div class="section-header">
+            <div class="section-title-group">
+              <h1>AI Chat Studio</h1>
+              <p class="section-subtitle">Perplexity & Claude hybrid interface powered by Groq LPU Engine.</p>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <span id="chat-active-startup-badge" class="badge badge-ai" style="display: none;">
+                <i class="fas fa-rocket"></i> <span id="chat-startup-name-display">Active Startup</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="chat-workspace">
+            <div class="chat-sidebar">
+              <button id="btn-new-chat" class="btn-primary" style="width: 100%; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <i class="fas fa-plus"></i> New Chat Session
+              </button>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
+                <h4 style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Saved Conversations</h4>
+              </div>
+              <div id="chat-sessions-list" style="display: flex; flex-direction: column; gap: 6px; max-height: 160px; overflow-y: auto;">
+                <!-- Populated dynamically via js/ai-chat.js -->
+              </div>
+
+              <h4 style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-top: 6px;">AI Model Selector</h4>
+              <select id="chat-model-select" class="form-control" style="font-size: 0.85rem; padding: 8px 12px;">
+                <option value="openai/gpt-oss-120b" selected>GPT-OSS 120B (Groq LPU Core)</option>
+                <option value="llama-3.3-70b-versatile">Llama 3.3 70B (Versatile)</option>
+                <option value="llama-3.1-8b-instant">Llama 3.1 8B (Instant Low-Latency)</option>
+                <option value="mixtral-8x7b-32768">Mixtral 8x7B (MoE 32k)</option>
+              </select>
+
+              <h4 style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-top: 8px;">Suggested Prompts</h4>
+              <button class="btn-secondary prompt-chip" style="font-size: 0.78rem; text-align: left;">Analyze my competitor's pricing</button>
+              <button class="btn-secondary prompt-chip" style="font-size: 0.78rem; text-align: left;">Write me a 30-sec elevator pitch</button>
+              <button class="btn-secondary prompt-chip" style="font-size: 0.78rem; text-align: left;">Simulate Series A Valuation</button>
+            </div>
+
+            <div class="chat-main">
+              <div class="chat-messages" id="chat-messages">
+                <div class="chat-msg ai">
+                  <div class="chat-avatar">VM</div>
+                  <div class="chat-bubble">
+                    Hello Founder! I am your <strong>Autonomous AI Co-Founder</strong> powered by <strong>Groq LPU Engine</strong>. Ask me anything about startup validation, competitive moats, financial modeling, unit economics, or pitch decks.
+                  </div>
+                </div>
+              </div>
+
+              <div class="chat-input-container">
+                <input type="text" id="chat-input" class="form-control" placeholder="Ask your AI Co-Founder anything...">
+                <button class="btn-icon" id="chat-voice-btn" title="Voice Input"><i class="fas fa-microphone"></i></button>
+                <button class="btn-primary" id="chat-send-btn"><i class="fas fa-paper-plane"></i></button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 11. REPORTS CENTER VIEW -->
+        <section id="view-reports" class="view-section">
+          <div class="section-header">
+            <div class="section-title-group">
+              <h1>AI Reports & Pitch Deck Studio</h1>
+              <p class="section-subtitle">Automated executive documents ready for investors and partners.</p>
+            </div>
+          </div>
+
+          <div class="grid-3">
+            <div class="glass-card">
+              <i class="fas fa-file-pdf" style="font-size: 2.5rem; color: var(--accent-pink); margin-bottom: 16px;"></i>
+              <h3>Series A Pitch Deck</h3>
+              <p style="color: var(--text-muted); font-size: 0.85rem; margin: 8px 0 20px 0;">12-slide AI generated pitch presentation based on your validation metrics.</p>
+              <button class="btn-primary" onclick="VentureMindApp.showToast('Pitch Deck PDF generated successfully!', 'success'); VentureMindApp.triggerConfetti();">
+                <i class="fas fa-download"></i> Download PDF
+              </button>
+            </div>
+
+            <div class="glass-card">
+              <i class="fas fa-file-alt" style="font-size: 2.5rem; color: var(--accent-cyan); margin-bottom: 16px;"></i>
+              <h3>Executive Summary</h3>
+              <p style="color: var(--text-muted); font-size: 0.85rem; margin: 8px 0 20px 0;">Comprehensive 2-page briefing document for venture partner reviews.</p>
+              <button class="btn-secondary" onclick="VentureMindApp.showToast('Executive Summary exported.', 'info');">
+                <i class="fas fa-eye"></i> Preview Memo
+              </button>
+            </div>
+
+            <div class="glass-card">
+              <i class="fas fa-map" style="font-size: 2.5rem; color: var(--accent-emerald); margin-bottom: 16px;"></i>
+              <h3>12-Month Product Roadmap</h3>
+              <p style="color: var(--text-muted); font-size: 0.85rem; margin: 8px 0 20px 0;">Milestones, sprint allocations, and feature release horizon.</p>
+              <button class="btn-secondary" onclick="VentureMindApp.showToast('Roadmap exported.', 'info');">
+                <i class="fas fa-eye"></i> View Roadmap
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 12. SETTINGS VIEW -->
+        <section id="view-settings" class="view-section">
+          <div class="section-header">
+            <div class="section-title-group">
+              <h1>Workspace Settings</h1>
+              <p class="section-subtitle">Manage organization, API keys, AI model preferences, and security.</p>
+            </div>
+          </div>
+
+          <div class="glass-card" style="max-width: 800px;">
+            <h3 style="margin-bottom: 20px;">API Keys & Model Access</h3>
+            <div class="form-group">
+              <label class="form-label">Backend API URL</label>
+              <input type="text" class="form-control" id="settings-backend-url" value="http://127.0.0.1:8000" placeholder="http://127.0.0.1:8000">
+              <small style="color: var(--text-dim); display: block; margin-top: 4px;">FastAPI Backend Gateway for Phase 1 CRUD & Financial Simulation APIs.</small>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Default Reasoning Agent</label>
+              <select class="form-control">
+                <option>Claude 3.5 Sonnet (Recommended)</option>
+                <option>GPT-4o</option>
+              </select>
+            </div>
+            <button class="btn-primary" onclick="VentureMindApp.showToast('Settings saved successfully.', 'success');">Save Preferences</button>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Fullscreen Holographic Scanner Modal -->
+  <div id="scanner-modal">
+    <div class="scanner-brain-container">
+      <div class="brain-pulse-ring"></div>
+      <div class="brain-pulse-ring"></div>
+      <div class="brain-pulse-ring"></div>
+      <div class="brain-core-icon">
+        <i class="fas fa-brain"></i>
+      </div>
+    </div>
+    <div class="scan-status-text gradient-text-accent" id="scan-status-text">
+      Scanning 14,800 Industry Competitors...
+    </div>
+  </div>
+
+  <!-- Command Palette Modal (Ctrl + K) -->
+  <div id="cmd-modal">
+    <div class="cmd-box">
+      <input type="text" id="cmd-input" class="cmd-input" placeholder="Type a command or search workspace (e.g. Dashboard, Chat, Digital Twin)...">
+      <div class="cmd-list">
+        <div class="cmd-item" data-cmd-view="view-dashboard">
+          <div><i class="fas fa-chart-line" style="margin-right: 10px; color: var(--accent-blue);"></i> Go to Mission Control Dashboard</div>
+          <span class="kbd-shortcut">Jump</span>
+        </div>
+        <div class="cmd-item" data-cmd-view="view-validation">
+          <div><i class="fas fa-rocket" style="margin-right: 10px; color: var(--accent-cyan);"></i> Run Startup Validation Wizard</div>
+          <span class="kbd-shortcut">Validate</span>
+        </div>
+        <div class="cmd-item" data-cmd-view="view-digital-twin">
+          <div><i class="fas fa-cube" style="margin-right: 10px; color: var(--accent-purple);"></i> Open Holographic Digital Twin</div>
+          <span class="kbd-shortcut">3D</span>
+        </div>
+        <div class="cmd-item" data-cmd-view="view-simulator">
+          <div><i class="fas fa-sliders-h" style="margin-right: 10px; color: var(--accent-emerald);"></i> Launch Business Simulator Lab</div>
+          <span class="kbd-shortcut">Simulate</span>
+        </div>
+        <div class="cmd-item" data-cmd-view="view-chat">
+          <div><i class="fas fa-comments" style="margin-right: 10px; color: var(--accent-pink);"></i> Chat with Autonomous AI Co-Founder</div>
+          <span class="kbd-shortcut">Chat</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Toast Notifications Container -->
+  <div id="toast-container"></div>
+
+  <!-- Floating Quick AI Assistant Drawer Button -->
+  <div id="ai-drawer-btn" data-view="view-chat" title="Quick AI Chat">
+    <i class="fas fa-sparkles"></i>
+  </div>
+
+  <!-- Application Scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/digital-twin.js"></script>
+  <script src="js/wizard.js"></script>
+  <script src="js/simulator.js"></script>
+  <script src="js/multi-agent.js"></script>
+  <script src="js/ai-chat.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
